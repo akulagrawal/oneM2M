@@ -1,0 +1,496 @@
+{
+	"info": {
+		"_postman_id": "0d9224a7-4d7b-4649-ac51-ba8a145f3153",
+		"name": "oneM2M Virtual Trainging",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create AE",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-type",
+						"type": "text",
+						"value": "application/xml;ty=2"
+					},
+					{
+						"key": "X-M2M-Origin",
+						"type": "text",
+						"value": "admin:admin"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<m2m:ae xmlns:m2m=\"http://www.onem2m.org/xml/protocols\" rn=\"AE_Luminosity\" >\r\n    <api>luminosity.demo.org</api>\r\n    <lbl>Type/actuator Category/luminosity Location/home</lbl>\r\n    <rr>false</rr>\r\n</m2m:ae>"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/in-cse/in-name/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"in-cse",
+						"in-name",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Descriptor CNT",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"type": "text",
+						"value": "admin:admin"
+					},
+					{
+						"key": "Content-type",
+						"type": "text",
+						"value": "application/xml;ty=3"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<m2m:cnt xmlns:m2m=\"http://www.onem2m.org/xml/protocols\" rn=\"DESCRIPTOR\" >\r\n</m2m:cnt>\r\n"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/in-cse/in-name/AE_Luminosity",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"in-cse",
+						"in-name",
+						"AE_Luminosity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Description CNI",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"value": "admin:admin",
+						"type": "text"
+					},
+					{
+						"key": "Content-type",
+						"value": "application/xml;ty=4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<m2m:cin xmlns:m2m=\"http://www.onem2m.org/xml/protocols\">\r\n    <cnf>text/plain</cnf>\r\n    <con>This is a sample description for this AE</con>\r\n</m2m:cin>"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/in-cse/in-name/AE_Luminosity/DESCRIPTOR",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"in-cse",
+						"in-name",
+						"AE_Luminosity",
+						"DESCRIPTOR"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Data CNT",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"type": "text",
+						"value": "admin:admin"
+					},
+					{
+						"key": "Content-type",
+						"type": "text",
+						"value": "application/xml;ty=3"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<m2m:cnt xmlns:m2m=\"http://www.onem2m.org/xml/protocols\" rn=\"DATA\" >\r\n</m2m:cnt>\r\n"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/in-cse/in-name/AE_Luminosity",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"in-cse",
+						"in-name",
+						"AE_Luminosity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Data CNI",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"value": "admin:admin",
+						"type": "text"
+					},
+					{
+						"key": "Content-type",
+						"value": "application/xml;ty=4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<m2m:cin xmlns:m2m=\"http://www.onem2m.org/xml/protocols\">\r\n    <cnf>text/plain</cnf>\r\n    <con>300</con>\r\n</m2m:cin>"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/in-cse/in-name/AE_Luminosity/DATA",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"in-cse",
+						"in-name",
+						"AE_Luminosity",
+						"DATA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Monitor SUB",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"type": "text",
+						"value": "admin:admin"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/xml;ty=23",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<m2m:sub xmlns:m2m=\"http://www.onem2m.org/xml/protocols\" rn=\"SUB_LuminosityMonitor\" >\r\n    <nu>http://127.0.0.1:1400/monitor</nu>\r\n    <nct>1</nct>\r\n</m2m:sub>"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/in-cse/in-name/AE_Luminosity/DATA",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"in-cse",
+						"in-name",
+						"AE_Luminosity",
+						"DATA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retreive CSE",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"type": "text",
+						"value": "admin:admin"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/in-cse/in-name/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"in-cse",
+						"in-name",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retreive CSE with filters",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"type": "text",
+						"value": "admin:admin"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/in-cse/in-name?fu=1&ty=2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"in-cse",
+						"in-name"
+					],
+					"query": [
+						{
+							"key": "fu",
+							"value": "1"
+						},
+						{
+							"key": "ty",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retreive AE with filters",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"type": "text",
+						"value": "admin:admin"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/in-cse/in-name/AE_Luminosity?fu=1&ty=3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"in-cse",
+						"in-name",
+						"AE_Luminosity"
+					],
+					"query": [
+						{
+							"key": "fu",
+							"value": "1"
+						},
+						{
+							"key": "ty",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retreive Latest/Oldest Data",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"type": "text",
+						"value": "admin:admin"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/in-cse/in-name/AE_Luminosity/DATA/ol",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"in-cse",
+						"in-name",
+						"AE_Luminosity",
+						"DATA",
+						"ol"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retreive all data",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-M2M-Origin",
+						"type": "text",
+						"value": "admin:admin"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/~/in-cse/in-name/AE_Luminosity/DATA?rcn=4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"~",
+						"in-cse",
+						"in-name",
+						"AE_Luminosity",
+						"DATA"
+					],
+					"query": [
+						{
+							"key": "rcn",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
